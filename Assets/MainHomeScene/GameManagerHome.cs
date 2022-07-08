@@ -8,7 +8,6 @@ public class GameManagerHome : MonoBehaviour
 {
     public TextMeshProUGUI goldText;
     public TextMeshProUGUI dayText;
-    public TextMeshProUGUI eventList;
 
     /*
     public const string[] NPC_LIST = {
@@ -37,7 +36,7 @@ public class GameManagerHome : MonoBehaviour
     public int gold;
     public int day;
     public int currentPlaceNum; // 0:쓰레기장, 1:시위, 2:잿빛, 3:달빛
-    public int progress; // 쓰레기가 얼마나 치워졌는지, 0~100 사이의 값을 가짐
+    //public int progress; // 쓰레기가 얼마나 치워졌는지, 0~100 사이의 값을 가짐
 
     /*
     public static readonly EventInfo[4, 10] EVENT_LIST =
@@ -70,7 +69,6 @@ public class GameManagerHome : MonoBehaviour
         // flow on screen
         goldText.text = gold.ToString() + " GOLD";
         dayText.text = "DAY " + day.ToString();
-        eventList.text = "";
         setBackGround(currentPlaceNum);
     }
 
