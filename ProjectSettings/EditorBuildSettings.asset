@@ -21,6 +21,6 @@ EditorBuildSettings:
     path: Assets/MainPlayScene/MainPlayScene.unity
     guid: c2acab158098e5c42807a52b6886300f
   - enabled: 1
-    path: Assets/EventScene.unity
+    path: Assets/EventScene/EventScene.unity
     guid: 3073232dc286c6f46aa9963007a5314c
   m_configObjects: {}
