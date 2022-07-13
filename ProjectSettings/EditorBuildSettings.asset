@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/GameScene.unity
     guid: 369342d1cbe024e1cac1b6079fd1c546
   - enabled: 1
-    path: Assets/Scenes/PlayScene2/PlayScene2.unity
+    path: Assets/Scenes/PlayScene1/PlayScene2.unity
     guid: 1237668a48c744219b3a0613377b2b44
   - enabled: 1
     path: Assets/card_seperate.unity
