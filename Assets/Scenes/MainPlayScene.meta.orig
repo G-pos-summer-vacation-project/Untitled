@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 62ed601218d735541bb02780ee8bb7c3
+<<<<<<< HEAD
+guid: d8e08b9178ec4ee4f905d36ad0d1106d
+=======
+guid: 2f8bec2abeead9d4dbb6fa2fea0161b5
+>>>>>>> EventScene
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
