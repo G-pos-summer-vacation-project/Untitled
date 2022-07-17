@@ -20,6 +20,7 @@ public class EventManager : MonoBehaviour
     public static int button;
     public static int choice;
     public bool isChoicing;
+    bool isFinished;
 
     public int gold;
     public int day;
@@ -33,6 +34,7 @@ public class EventManager : MonoBehaviour
     public List<string> ownedNPC;
     public List<string> ownedItem;
 
+    public GameObject goToPlay;
     public GameObject blur;
     public List<GameObject> backGrounds;
     public List<GameObject> buttons;
@@ -76,7 +78,7 @@ public class EventManager : MonoBehaviour
     {
         if(eventHelper.ContainsKey(eventID))
         {
-            Debug.Log(eventID);
+            // Debug.Log(eventID);
             if(isChoicing)
             {
                 if(choice != 0)
@@ -103,13 +105,19 @@ public class EventManager : MonoBehaviour
                 button = 0;
             }
         }
+        else if(!isFinished)
+        {
+            eventText.text = "";
+            goToPlay.SetActive(true);
+            isFinished = true;
+        }
     }
 
     void addEventInfo(string[] words) // reading and adding event
     {
-        int p1, p2, p3, id = eventID + sToInt(words[0]), value, startPoint = 1;
+        int p1, p2, p3, id = eventID + sToInt(words[0]), startPoint = 1;
         p1 = p2 = p3 = eventID;
-        string corpus, func, image = "none", name;
+        string corpus, func, image = "none";
 
         if (words[1][0] == '^')
         {
@@ -341,7 +349,7 @@ public class EventManager : MonoBehaviour
             images[name].SetActive(false);
         }
 
-        
+        goToPlay.SetActive(false);
 
         for (int i = 0; i < 5; i++)
         {
@@ -349,6 +357,7 @@ public class EventManager : MonoBehaviour
         }
 
         eventText.text = "";
+        isFinished = false;
     }
 
     void selectEvent()
@@ -485,7 +494,7 @@ public class EventManager : MonoBehaviour
 
     List<string> getLines(string eventName)
     {
-        string path = "Assets/EventScene/";
+        string path = "Assets/Scenes/EventScene/";
         string Tag_path = path + eventName + ".txt";
 
         var lines = new List<string>();
