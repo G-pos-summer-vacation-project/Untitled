@@ -70,6 +70,7 @@ public class colorControl : MonoBehaviour
                 {
                     raycaster.GetComponent<IsInCenter>().Incorrect();
                     isCorrect = false;
+                    continue;
                 }
             }
             if (isCorrect) raycaster.GetComponent<IsInCenter>().Correct();

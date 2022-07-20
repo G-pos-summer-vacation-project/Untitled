@@ -5,20 +5,14 @@ using TMPro;
 
 public class card_count : MonoBehaviour
 {
-    public static card_count instance;
-    int[] gar_card= new int[8];
+    public GameObject card_repos;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
-        if (instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
+        
         for (int i = 0; i < 8; i++)
         {
             gameObject.transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = "0";
-            gar_card[i] = 0;
         }
         
     }
@@ -58,13 +52,11 @@ public class card_count : MonoBehaviour
                 temp = 5;
                 break;
         }
-        gar_card[temp]++;
-        gameObject.transform.GetChild(temp).GetComponent<TextMeshProUGUI>().text = gar_card[temp].ToString();
+        card_repos.GetComponent<card_repository>().gar_cards[temp]++;
+        card_repos.GetComponent<card_repository>().append_card_seq(temp);
+        gameObject.transform.GetChild(temp).GetComponent<TextMeshProUGUI>().text = card_repos.GetComponent<card_repository>().gar_cards[temp].ToString();
 
     }
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
