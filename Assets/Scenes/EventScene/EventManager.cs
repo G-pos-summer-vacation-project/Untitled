@@ -10,7 +10,7 @@ using TMPro;
 
 public class EventManager : MonoBehaviour
 {
-    readonly int[] MONEY_TO_GO = {8000, 40000, 200000}; // money to go demo
+    readonly int[] MONEY_TO_GO = {20000, 80000, 200000}; // money to go demo
     readonly int PENTHOUSE = 3000000; // money to buy penthouse
     readonly int END_DAY = 100;
     double[,] EVENT_POSSIBILITY = new double[4, 4] { { 1.0, 1.0, 1.0, 0 }, { 1.0, 1.0, 0, 0 }, { 1.0, 1.0, 1.0, 1.0 }, { 1.0, 0, 0, 0 } };
@@ -31,7 +31,7 @@ public class EventManager : MonoBehaviour
     public TextMeshProUGUI eventText;
     public TextMeshProUGUI c21, c22, c31, c32, c33;
 
-    public List<string> ownedNPC;
+    public List<string> ownedNPC = new List<string>();
     public List<string> ownedItem;
 
     public GameObject goToPlay;
@@ -56,6 +56,12 @@ public class EventManager : MonoBehaviour
         eventID = 0;
         foreach (var eventName in upComingEvents)
         {
+            if(eventID != 0)
+            {
+                eventHelper.Add(eventID, new EventInfo("...", "none", "none", eventID + 1));
+                eventID++;
+            }
+
             var lines = getLines(eventName);
 
             for(int i = 0; i < lines.Count; i++)
@@ -107,9 +113,12 @@ public class EventManager : MonoBehaviour
         }
         else if(!isFinished)
         {
-            eventText.text = "";
-            goToPlay.SetActive(true);
-            isFinished = true;
+            if (button == 1)
+            {
+                eventText.text = "";
+                goToPlay.SetActive(true);
+                isFinished = true;
+            }
         }
     }
 
@@ -393,36 +402,36 @@ public class EventManager : MonoBehaviour
                 {
                     tryAddingEvent("sub01"); // kid
                 }
-                tryAddingEvent("sub02"); // crazy man and drunk
+                //tryAddingEvent("sub02"); // crazy man and drunk
                 break;
             case 1:
-                tryAddingEvent("sub10"); // demo crowd
-                tryAddingEvent("sub11"); // demo leader
+                //tryAddingEvent("sub10"); // demo crowd
+                //tryAddingEvent("sub11"); // demo leader
                 break;
             case 2:
-                tryAddingEvent("sub20"); // factory owner
-                tryAddingEvent("sub21"); // factory
+                //tryAddingEvent("sub20"); // factory owner
+                //tryAddingEvent("sub21"); // factory
                 if (bedStatus == 0)
                 {
                     var tmp1 = EVENT_POSSIBILITY[2, 2];
                     var tmp2 = EVENT_POSSIBILITY[2, 3];
                     EVENT_POSSIBILITY[2, 2] = ORIGINAL_POS22;
                     EVENT_POSSIBILITY[2, 3] = ORIGINAL_POS23;
-                    tryAddingEvent("sub22"); // blackguard
-                    tryAddingEvent("sub23"); // thief
+                    //tryAddingEvent("sub22"); // blackguard
+                    //tryAddingEvent("sub23"); // thief
                     EVENT_POSSIBILITY[2, 2] = tmp1;
                     EVENT_POSSIBILITY[2, 3] = tmp2;
                 }
                 else
                 {
-                    tryAddingEvent("sub22"); // blackguard
-                    tryAddingEvent("sub23"); // thief
+                    //tryAddingEvent("sub22"); // blackguard
+                    //tryAddingEvent("sub23"); // thief
                 }
                 break;
             case 3:
                 if(bedStatus == 4)
                 {
-                    tryAddingEvent("sub30"); // president
+                    //tryAddingEvent("sub30"); // president
                 }
                 break;
         }
@@ -432,7 +441,7 @@ public class EventManager : MonoBehaviour
     {
         var rand = new System.Random();
         double possibility = EVENT_POSSIBILITY[eventName[3] - '0', eventName[4] - '0'];
-        if (rand.NextDouble() > possibility)
+        if (rand.NextDouble() < possibility)
         {
             upComingEvents.Add(eventName);
         }
