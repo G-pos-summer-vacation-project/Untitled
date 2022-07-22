@@ -7,6 +7,7 @@ public class MainData : MonoBehaviour
     public static MainData Instance;
 
     public static int gold;
+    public static int earnedGold;
     public static int day;
     public static int currentPlaceNum; // 0:¾²·¹±âÀå, 1:½ÃÀ§, 2:Àíºû, 3:´Şºû
     public static int demoProgress;

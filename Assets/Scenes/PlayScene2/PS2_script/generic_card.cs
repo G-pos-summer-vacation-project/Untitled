@@ -70,35 +70,35 @@ public class generic_card : MonoBehaviour, IDragHandler, IEndDragHandler
         switch (seq)
         {
             case 0:
-                MainData.gold += 160;
+                MainData.earnedGold += 160;
                 MainData.point += 1500;
                 break;
             case 1:
-                MainData.gold += 150;
+                MainData.earnedGold += 150;
                 MainData.point += 1400;
                 break;
             case 2:
-                MainData.gold += 200;
+                MainData.earnedGold += 200;
                 MainData.point += 2000;
                 break;
             case 3:
-                MainData.gold += 170;
+                MainData.earnedGold += 170;
                 MainData.point += 1600;
                 break;
             case 4:
-                MainData.gold += 140;
+                MainData.earnedGold += 140;
                 MainData.point += 1300;
                 break;
             case 5:
-                MainData.gold += 140;
+                MainData.earnedGold += 140;
                 MainData.point += 1200;
                 break;
             case 6:
-                MainData.gold += 180;
+                MainData.earnedGold += 180;
                 MainData.point += 1300;
                 break;
             case 7:
-                MainData.gold += 140;
+                MainData.earnedGold += 140;
                 MainData.point += 1800;
                 break;
         }
