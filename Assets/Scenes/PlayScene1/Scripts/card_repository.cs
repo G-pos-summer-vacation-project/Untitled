@@ -34,7 +34,6 @@ public class card_repository : MonoBehaviour
     }
     public void append_card_seq(int n)
     {
-        Debug.Log(seq);
         card_seq[seq] = n;
         seq++;
     }
