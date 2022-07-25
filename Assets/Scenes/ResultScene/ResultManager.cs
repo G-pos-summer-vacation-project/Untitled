@@ -14,6 +14,7 @@ public class ResultManager : MonoBehaviour
     int time;
     int regen;
     bool clicked;
+    int nowgold, nowpoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +25,13 @@ public class ResultManager : MonoBehaviour
         time = 0;
         regen = 20;
         clicked = false;
+
+        nowgold = MainData.earnedGold;
+        nowpoint = MainData.point;
+
         MainData.gold += MainData.earnedGold;
         MainData.totalPoint += MainData.point;
+        MainData.day++;
         MainData.earnedGold = 0;
         MainData.point = 0;
     }
@@ -44,13 +50,13 @@ public class ResultManager : MonoBehaviour
                 goldText.text = "GOLD ";
                 break;
             case 3:
-                goldText.text = "GOLD + " + MainData.earnedGold;
+                goldText.text = "GOLD + " + nowgold;
                 break;
             case 4:
                 pointText.text = "POINT ";
                 break;
             case 5:
-                pointText.text = "POINT + " + MainData.point;
+                pointText.text = "POINT + " + nowpoint;
                 break;
             default:
                 if(clicked)

@@ -15,6 +15,9 @@ public class MainData : MonoBehaviour
     public static int point;
     public static int totalPoint;
 
+    public int nowGold;
+    public int nowPoint;
+
     public static List<string> ownedNPC = new List<string>();
     public static List<string> ownedItem = new List<string>();
 
@@ -27,15 +30,5 @@ public class MainData : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-    }
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
     }
 }
