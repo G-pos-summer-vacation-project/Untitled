@@ -512,7 +512,7 @@ GameObject:
   - component: {fileID: 829692860}
   - component: {fileID: 829692859}
   m_Layer: 0
-  m_Name: raycaster_center (1)
+  m_Name: raycaster_up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -530,7 +530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393da929a6349479cb9824a2050b6103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RC_center: {fileID: 0}
+  RC_center: {fileID: 642704857}
 --- !u!4 &829692860
 Transform:
   m_ObjectHideFlags: 0
