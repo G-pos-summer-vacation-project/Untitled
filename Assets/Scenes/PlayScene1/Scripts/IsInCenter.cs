@@ -10,7 +10,7 @@ public class IsInCenter : MonoBehaviour
     public GameObject cardControl;
     public ParticleSystem ps;
     int time = 0;
-    public int regen_time = 500;
+    public int regen_time = 900;
     // Start is called before the first frame update
     // Update is called once per frame
     public void Incorrect()

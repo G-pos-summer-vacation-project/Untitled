@@ -5,7 +5,7 @@ using UnityEngine;
 public class generic_garbage_script : MonoBehaviour
 {
     float x;
-    float amount = 1.5f;
+    float amount = 1f;
     bool iscenter = true;
     bool InCenter = false;
     public int gar_sequence;
