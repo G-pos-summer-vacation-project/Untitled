@@ -20,6 +20,4 @@ public class IsCenterEmpty : MonoBehaviour
             rh.transform.GetComponent<generic_garbage_script>().SendMessage("isCenterEmpty", false);
         }
     }
-    // Update is called once per frame
-    
 }

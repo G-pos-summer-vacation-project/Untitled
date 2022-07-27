@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PlayScene1/PlayScene1.unity
     guid: 1237668a48c744219b3a0613377b2b44
-  - enabled: 1
+  - enabled: 0
     path: Assets/card_seperate.unity
     guid: 5c9677812628e48d7a87c89dec0b316c
   - enabled: 1

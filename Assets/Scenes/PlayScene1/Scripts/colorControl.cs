@@ -17,19 +17,19 @@ public class colorControl : MonoBehaviour
     }
     public void button1()
     {
-        ans[num++] = 0;
+        if(raycaster.GetComponent<IsInCenter>().RC_isinCenter())ans[num++] = 0;
     }
     public void button2()
     {
-        ans[num++] = 1;
+        if (raycaster.GetComponent<IsInCenter>().RC_isinCenter()) ans[num++] = 1;
     }
     public void button3()
     {
-        ans[num++] = 2;
+        if (raycaster.GetComponent<IsInCenter>().RC_isinCenter()) ans[num++] = 2;
     }
     public void button4()
     {
-        ans[num++] = 3;
+        if (raycaster.GetComponent<IsInCenter>().RC_isinCenter()) ans[num++] = 3;
     }
     void generate_random_array()
     {

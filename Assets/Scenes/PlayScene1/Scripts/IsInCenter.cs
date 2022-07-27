@@ -10,7 +10,7 @@ public class IsInCenter : MonoBehaviour
     public GameObject cardControl;
     public ParticleSystem ps;
     int time = 0;
-    public int regen_time = 1000;
+    public int regen_time = 500;
     // Start is called before the first frame update
     // Update is called once per frame
     public void Incorrect()
@@ -27,6 +27,10 @@ public class IsInCenter : MonoBehaviour
         }
         instantiater.GetComponent<garbageInstance>().destroyed();
         Instantiate(ps, new Vector3(0, 0, 0), new Quaternion());
+    }
+    public bool RC_isinCenter()
+    {
+        return Physics2D.Raycast(transform.position, transform.right, 100);
     }
     void Update()
     {

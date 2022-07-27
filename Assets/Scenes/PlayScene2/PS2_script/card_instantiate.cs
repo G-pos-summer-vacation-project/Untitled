@@ -7,8 +7,9 @@ public class card_instantiate : MonoBehaviour
 {
     public Transform init_position;
     public GameObject cards;
-    int repos_seq = 1;
+    //int repos_seq = 1;
     int card_num;
+    int init_sort_layer = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,7 @@ public class card_instantiate : MonoBehaviour
             int sequence = card_repository.cc_instance.card_seq[i];
             GameObject ins_gar= Instantiate(cards.transform.GetChild(sequence).gameObject, init_position.position, init_position.rotation);
             ins_gar.GetComponent<generic_card>().get_gar_seq(sequence);
+            ins_gar.GetComponent<SpriteRenderer>().sortingOrder = init_sort_layer++;
         }
     }
     public void Next_Scene()
