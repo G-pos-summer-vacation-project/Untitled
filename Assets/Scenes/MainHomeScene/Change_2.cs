@@ -7,6 +7,6 @@ public class Change_2 : MonoBehaviour
 {
     public void SceneChange()
     {
-        SceneManager.LoadScene("sample_2");
+        SceneManager.LoadScene("TempScene");
     }
 }
