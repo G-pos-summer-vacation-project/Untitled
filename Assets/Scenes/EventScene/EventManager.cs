@@ -503,15 +503,35 @@ public class EventManager : MonoBehaviour
 
     List<string> getLines(string eventName)
     {
-        string path = "Assets/Scenes/EventScene/";
-        string Tag_path = path + eventName + ".txt";
+        TextAsset asset = Resources.Load("Encounters/" + eventName) as TextAsset;
+        string str = asset.text;
 
-        var lines = new List<string>();
-        foreach (string line in File.ReadLines(Tag_path))
+        //Debug.Log(str);
+
+        var lines = str.Split('\n');
+        var Lines = new List<string>();
+        foreach(var line in lines)
         {
-            lines.Add(line);
+            if('0' <= line[line.Length - 1] && line[line.Length - 1] <= '9')
+                Lines.Add(line);
+            else
+            {
+                Lines.Add(sliceCombine(line, 0, line.Length - 1));
+            }
         }
 
-        return lines;
+        //string path = "Assets/Resources/Encounters/";
+        //string Tag_path = path + eventName + ".txt";
+
+        //var lines_ = new List<string>();
+        //foreach (string line in File.ReadLines(Tag_path))
+        //{
+        //    lines_.Add(line);
+        //}
+
+
+        return Lines;
+        
+        
     }
 }
