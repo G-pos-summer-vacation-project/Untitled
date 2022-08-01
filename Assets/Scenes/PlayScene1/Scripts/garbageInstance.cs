@@ -38,10 +38,14 @@ public class garbageInstance : MonoBehaviour
         if (instance_num > 0) instance_num--;
         //Debug.Log(instance_num);
     }
+    public void loadnextscene()
+    {
+        SceneManager.LoadScene("PlayScene2");
+    }
     // Update is called once per frame
     void Update()
     {
-        if (instance_num == 0 && garbage_num == 0) SceneManager.LoadScene("PlayScene2");
+        if (instance_num == 0 && garbage_num == 0) loadnextscene();
     }
 
 }

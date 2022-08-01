@@ -47,7 +47,7 @@ public class generic_garbage_script : MonoBehaviour
         }
         else if(!InCenter)
         {
-            rb.AddForce(Vector2.left*amount, ForceMode2D.Force);
+            rb.velocity = new Vector2(-3, 0);
         }
         
     }
