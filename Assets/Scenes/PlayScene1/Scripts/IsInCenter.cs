@@ -9,6 +9,9 @@ public class IsInCenter : MonoBehaviour
     public GameObject NextGarbage;
     public GameObject cardControl;
     public ParticleSystem ps;
+
+    public GameObject pauseWindow;
+
     int time = 0;
     public int regen_time = 900;
     // Start is called before the first frame update
@@ -50,7 +53,8 @@ public class IsInCenter : MonoBehaviour
             instantiater.GetComponent<garbageInstance>().Instantiate_garbage();
             
         }
-        time++;
+        if(pauseWindow.activeSelf != true)
+            time++;
         if (time > regen_time) time = 0;
     }
 }

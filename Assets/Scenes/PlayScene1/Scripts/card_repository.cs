@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class card_repository : MonoBehaviour
 {
@@ -47,5 +48,9 @@ public class card_repository : MonoBehaviour
         {
             gar_cards[i] = 0;
         }
+    }
+    public void Update()
+    {
+        if (SceneManager.GetActiveScene().name == "ResultScene") Destroy(gameObject);
     }
 }

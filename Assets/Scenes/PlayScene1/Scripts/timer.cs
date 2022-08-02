@@ -6,6 +6,7 @@ using TMPro;
 public class timer : MonoBehaviour
 {
     public GameObject nextSceneLoader;
+    public GameObject pauseWindow;
     float time = 10;
     // Start is called before the first frame update
     void Start()
@@ -16,7 +17,10 @@ public class timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time -= Time.deltaTime;
+        if (pauseWindow.activeSelf != true)
+        {
+            time -= Time.deltaTime;
+        }
         gameObject.GetComponent<TextMeshProUGUI>().text = string.Format("{0:N1}", time);
         if (time <= 0)
         {

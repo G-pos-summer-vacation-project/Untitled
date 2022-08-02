@@ -10,7 +10,7 @@ public class generic_garbage_script : MonoBehaviour
     bool InCenter = false;
     public int gar_sequence;
     Rigidbody2D rb;
-    // Start is called before the first frame update
+
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -47,7 +47,10 @@ public class generic_garbage_script : MonoBehaviour
         }
         else if(!InCenter)
         {
-            rb.velocity = new Vector2(-3, 0);
+            if (GameObject.Find("PauseCanvas").transform.GetChild(0).gameObject.activeSelf)
+                rb.velocity = new Vector2(0, 0);
+            else
+                rb.velocity = new Vector2(-3, 0);
         }
         
     }

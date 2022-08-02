@@ -512,6 +512,9 @@ public class EventManager : MonoBehaviour
         var Lines = new List<string>();
         foreach(var line in lines)
         {
+            if (line == "")
+                continue;
+
             if('0' <= line[line.Length - 1] && line[line.Length - 1] <= '9')
                 Lines.Add(line);
             else
