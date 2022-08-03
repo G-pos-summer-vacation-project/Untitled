@@ -6,6 +6,7 @@ public class generic_garbage_script : MonoBehaviour
 {
     float x;
     float amount = 1f;
+    float scaleHeight;
     bool iscenter = true;
     bool InCenter = false;
     public int gar_sequence;
@@ -14,6 +15,8 @@ public class generic_garbage_script : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+
+        scaleHeight = ((float)Screen.width / Screen.height) / ((float)9 / 16);
     }
     public void isCenterEmpty(bool m)
     {
@@ -38,20 +41,20 @@ public class generic_garbage_script : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+
         x = gameObject.transform.position.x;
-        if (x < -1)
+        if (x < -1 * scaleHeight)
         {
             rb.constraints = RigidbodyConstraints2D.FreezePosition;
             sendToMiddle();
         }
-        else if(!InCenter)
+        else if (!InCenter)
         {
             if (GameObject.Find("PauseCanvas").transform.GetChild(0).gameObject.activeSelf)
                 rb.velocity = new Vector2(0, 0);
             else
                 rb.velocity = new Vector2(-3, 0);
         }
-        
+
     }
 }
