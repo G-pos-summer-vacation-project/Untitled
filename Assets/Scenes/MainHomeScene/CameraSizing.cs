@@ -15,5 +15,9 @@ public class CameraSizing : MonoBehaviour
         {
             camera.orthographicSize = size / scaleHeight;
         }
+        else
+        {
+            camera.orthographicSize = size / scaleWidth;
+        }
     }
 }
