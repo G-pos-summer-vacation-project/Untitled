@@ -53,7 +53,7 @@ public class IsInCenter : MonoBehaviour
             instantiater.GetComponent<garbageInstance>().Instantiate_garbage();
             
         }
-        if(pauseWindow.activeSelf != true)
+        if(!pauseWindow.activeSelf)
             time++;
         if (time > regen_time) time = 0;
     }

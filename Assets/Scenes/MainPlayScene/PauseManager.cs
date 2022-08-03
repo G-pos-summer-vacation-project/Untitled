@@ -4,9 +4,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 using System.Linq;
+using UnityEngine.Audio;
 
 public class PauseManager : MonoBehaviour
 {
+    public AudioMixer masterMixer;
+    public float BGMsound;
+    public float SFXsound;
+    public GameObject BGMmute;
+    public GameObject BGMmuted;
+    public GameObject SFXmute;
+    public GameObject SFXmuted;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +22,8 @@ public class PauseManager : MonoBehaviour
             this.gameObject.SetActive(false);
 
         Scene scene = SceneManager.GetActiveScene();
-
+        masterMixer.SetFloat("BGM", BGMsound);
+        masterMixer.SetFloat("SFX", BGMsound);
     }
 
     public void Save()
@@ -80,5 +89,68 @@ public class PauseManager : MonoBehaviour
         MainData.ownedItem = new List<string>();
         Save();
         //Debug.Log("Reset");
+    }
+
+    public void ToggleBGMVolume()
+    {
+        float tmp;
+        masterMixer.GetFloat("BGM", out tmp);
+        if(tmp == BGMsound)
+        {
+            masterMixer.SetFloat("BGM", -80f);
+        }
+        else
+        {
+            masterMixer.SetFloat("BGM", BGMsound);
+        }
+    }
+
+    public void ToggleSFXVolume()
+    {
+        float tmp;
+        masterMixer.GetFloat("SFX", out tmp);
+        if (tmp == SFXsound)
+        {
+            masterMixer.SetFloat("SFX", -80f);
+        }
+        else
+        {
+            masterMixer.SetFloat("SFX", SFXsound);
+        }
+    }
+
+    public void SetVolumeToggle()
+    {
+        float tmp;
+        masterMixer.GetFloat("BGM", out tmp);
+        if(tmp == BGMsound)
+        {
+            if(!BGMmute.activeSelf)
+                BGMmute.SetActive(true);
+            if(BGMmuted.activeSelf)
+                BGMmuted.SetActive(false);
+        }
+        else
+        {
+            if (BGMmute.activeSelf)
+                BGMmute.SetActive(false);
+            if (!BGMmuted.activeSelf)
+                BGMmuted.SetActive(true);
+        }
+        masterMixer.GetFloat("SFX", out tmp);
+        if(tmp == SFXsound)
+        {
+            if (!SFXmute.activeSelf)
+                SFXmute.SetActive(true);
+            if (SFXmuted.activeSelf)
+                SFXmuted.SetActive(false);
+        }
+        else
+        {
+            if (SFXmute.activeSelf)
+                SFXmute.SetActive(false);
+            if (!SFXmuted.activeSelf)
+                SFXmuted.SetActive(true);
+        }
     }
 }
