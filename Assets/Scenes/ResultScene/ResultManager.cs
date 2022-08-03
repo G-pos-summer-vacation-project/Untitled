@@ -11,8 +11,8 @@ public class ResultManager : MonoBehaviour
     public TextMeshProUGUI pointText;
     public TextMeshProUGUI blinkText;
 
-    int time;
-    int regen;
+    float time;
+    float regen;
     bool clicked;
     int nowgold, nowpoint;
     // Start is called before the first frame update
@@ -23,7 +23,7 @@ public class ResultManager : MonoBehaviour
         pointText.text = "";
         blinkText.text = "";
         time = 0;
-        regen = 20;
+        regen = 0.3f;
         clicked = false;
 
         nowgold = MainData.earnedGold;
@@ -39,7 +39,7 @@ public class ResultManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (time / regen)
+        switch ((int)(time / regen))
         {
             case 0:
                 break;
@@ -63,7 +63,7 @@ public class ResultManager : MonoBehaviour
                 {
                     SceneManager.LoadScene("MainPlayScene");
                 }
-                if(time/regen % 2 == 0)
+                if((int)(time/regen) % 2 == 0)
                 {
                     blinkText.text = "Touch to return";
                 }
@@ -73,7 +73,7 @@ public class ResultManager : MonoBehaviour
                 }
                 break;
         }
-        time++;
+        time += Time.deltaTime;
         clicked = false;
     }
 
