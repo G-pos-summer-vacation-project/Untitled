@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class IsInCenter : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class IsInCenter : MonoBehaviour
     public GameObject NextGarbage;
     public GameObject cardControl;
     public ParticleSystem ps;
+    public AudioSource audioSource;
 
     public GameObject pauseWindow;
 
@@ -30,6 +32,7 @@ public class IsInCenter : MonoBehaviour
         }
         instantiater.GetComponent<garbageInstance>().destroyed();
         Instantiate(ps, new Vector3(0, 0, 0), new Quaternion());
+        audioSource.Play();
     }
     public bool RC_isinCenter()
     {

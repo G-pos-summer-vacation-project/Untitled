@@ -32,6 +32,9 @@ public class card_instantiate : MonoBehaviour
     }
     public void Next_Scene()
     {
-        SceneManager.LoadScene("ResultScene");
+        if(MainData.point == 0)
+            SceneManager.LoadScene("GameOverScene");
+        else
+            SceneManager.LoadScene("ResultScene");
     }
 }
