@@ -405,7 +405,7 @@ public class EventManager : MonoBehaviour
                 //tryAddingEvent("sub02"); // crazy man and drunk
                 break;
             case 1:
-                //tryAddingEvent("sub10"); // demo crowd
+                tryAddingEvent("sub10"); // demo crowd
                 //tryAddingEvent("sub11"); // demo leader
                 break;
             case 2:
@@ -418,14 +418,14 @@ public class EventManager : MonoBehaviour
                     EVENT_POSSIBILITY[2, 2] = ORIGINAL_POS22;
                     EVENT_POSSIBILITY[2, 3] = ORIGINAL_POS23;
                     //tryAddingEvent("sub22"); // blackguard
-                    //tryAddingEvent("sub23"); // thief
+                    tryAddingEvent("sub23"); // thief
                     EVENT_POSSIBILITY[2, 2] = tmp1;
                     EVENT_POSSIBILITY[2, 3] = tmp2;
                 }
                 else
                 {
                     //tryAddingEvent("sub22"); // blackguard
-                    //tryAddingEvent("sub23"); // thief
+                    tryAddingEvent("sub23"); // thief
                 }
                 break;
             case 3:
