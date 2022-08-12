@@ -29,6 +29,11 @@ public class generic_card : MonoBehaviour, IDragHandler, IEndDragHandler
                 if (chamber == 3)
                 {
                     correct(gar_seq);
+                    GameObject.Find("SFXmanager0").GetComponent<AudioSource>().Play();
+                }
+                else
+                {
+                    GameObject.Find("SFXmanager1").GetComponent<AudioSource>().Play();
                 }
                 Destroy(gameObject);
             }
@@ -40,6 +45,11 @@ public class generic_card : MonoBehaviour, IDragHandler, IEndDragHandler
                 if (chamber == 1)
                 {
                     correct(gar_seq);
+                    GameObject.Find("SFXmanager0").GetComponent<AudioSource>().Play();
+                }
+                else
+                {
+                    GameObject.Find("SFXmanager1").GetComponent<AudioSource>().Play();
                 }
                 Destroy(gameObject);
             }
@@ -51,6 +61,11 @@ public class generic_card : MonoBehaviour, IDragHandler, IEndDragHandler
                 if (chamber == 2)
                 {
                     correct(gar_seq);
+                    GameObject.Find("SFXmanager0").GetComponent<AudioSource>().Play();
+                }
+                else
+                {
+                    GameObject.Find("SFXmanager1").GetComponent<AudioSource>().Play();
                 }
                 Destroy(gameObject);
             }
@@ -59,6 +74,11 @@ public class generic_card : MonoBehaviour, IDragHandler, IEndDragHandler
                 if (chamber == 4)
                 {
                     correct(gar_seq);
+                    GameObject.Find("SFXmanager0").GetComponent<AudioSource>().Play();
+                }
+                else
+                {
+                    GameObject.Find("SFXmanager1").GetComponent<AudioSource>().Play();
                 }
                 Destroy(gameObject);
             }
