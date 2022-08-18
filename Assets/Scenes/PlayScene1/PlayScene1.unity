@@ -3183,15 +3183,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -1874038309, guid: 50b807684f01e4fc58598bfeb717100d, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -5535,8 +5535,8 @@ MonoBehaviour:
   NextGarbage: {fileID: 1156885050}
   cardControl: {fileID: 1131881988}
   ps: {fileID: 198405478074982118, guid: 4adffb0018aeda44e9263f901167af1f, type: 3}
-  audioSource: {fileID: 1805469402}
   pauseWindow: {fileID: 1000333362}
+  Audio: {fileID: 1805469402}
   regen_time: 500
 --- !u!82 &1805469402
 AudioSource:
