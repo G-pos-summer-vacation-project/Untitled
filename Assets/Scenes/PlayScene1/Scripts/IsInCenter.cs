@@ -10,8 +10,6 @@ public class IsInCenter : MonoBehaviour
     public GameObject NextGarbage;
     public GameObject cardControl;
     public ParticleSystem ps;
-    public AudioSource audioSource;
-
     public GameObject pauseWindow;
 
     int time = 0;
@@ -32,7 +30,6 @@ public class IsInCenter : MonoBehaviour
         }
         instantiater.GetComponent<garbageInstance>().destroyed();
         Instantiate(ps, new Vector3(0, 0, 0), new Quaternion());
-        audioSource.Play();
     }
     public bool RC_isinCenter()
     {

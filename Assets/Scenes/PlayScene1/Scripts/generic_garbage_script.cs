@@ -5,7 +5,6 @@ using UnityEngine;
 public class generic_garbage_script : MonoBehaviour
 {
     float x;
-    float amount = 1f;
     float scaleHeight;
     bool iscenter = true;
     bool InCenter = false;
