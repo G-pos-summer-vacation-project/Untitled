@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class card_repository : MonoBehaviour
 {
     public static card_repository cc_instance;
-    public int[] gar_cards = new int[8];
-    public int[] card_seq = new int[10];
+    public int[] gar_cards = new int[7];
+    public int[] card_seq = new int[40];
     static int seq = 0;
     // Start is called before the first frame update
     void Awake()

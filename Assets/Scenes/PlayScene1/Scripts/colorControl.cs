@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class colorControl : MonoBehaviour
 {
+    public AudioSource audio;
     public GameObject raycaster;
     int[] arr = new int[4];
     int[] ans = new int[4];
@@ -17,19 +18,35 @@ public class colorControl : MonoBehaviour
     }
     public void button1()
     {
-        if(raycaster.GetComponent<IsInCenter>().RC_isinCenter())ans[num++] = 0;
+        if (raycaster.GetComponent<IsInCenter>().RC_isinCenter())
+        {
+            ans[num++] = 0;
+            audio.Play();
+        }
     }
     public void button2()
     {
-        if (raycaster.GetComponent<IsInCenter>().RC_isinCenter()) ans[num++] = 1;
+        if (raycaster.GetComponent<IsInCenter>().RC_isinCenter())
+        {
+            ans[num++] = 1;
+            audio.Play();
+        }
     }
     public void button3()
     {
-        if (raycaster.GetComponent<IsInCenter>().RC_isinCenter()) ans[num++] = 2;
+        if (raycaster.GetComponent<IsInCenter>().RC_isinCenter())
+        {
+            ans[num++] = 2;
+            audio.Play();
+        }
     }
     public void button4()
     {
-        if (raycaster.GetComponent<IsInCenter>().RC_isinCenter()) ans[num++] = 3;
+        if (raycaster.GetComponent<IsInCenter>().RC_isinCenter())
+        {
+            ans[num++] = 3;
+            audio.Play();
+        }
     }
     void generate_random_array()
     {

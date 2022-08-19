@@ -8,7 +8,7 @@ public class garbageInstance : MonoBehaviour
 {
     public GameObject Garbage;
     public RectTransform init_position;
-    int garbage_type_num = 10;
+    int garbage_type_num = 19;
     
     private int instance_num = 1;
     // Start is called before the first frame update
