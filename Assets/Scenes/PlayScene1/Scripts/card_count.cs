@@ -88,6 +88,9 @@ public class card_count : MonoBehaviour
                 temp2 = (int)gar_enum.metal;
                 temp3 = (int)gar_enum.other;
                 break;
+            case 19:
+                temp = (int)gar_enum.paper;
+                break;
         }
         card_repos.GetComponent<card_repository>().gar_cards[temp]++;
         if (temp2 >= 0) card_repos.GetComponent<card_repository>().gar_cards[temp2]++;
