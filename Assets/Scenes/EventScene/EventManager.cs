@@ -10,12 +10,12 @@ using TMPro;
 
 public class EventManager : MonoBehaviour
 {
-    readonly int[] MONEY_TO_GO = {20000, 80000, 200000}; // money to go demo
-    readonly int PENTHOUSE = 3000000; // money to buy penthouse
+    readonly int[] MONEY_TO_GO = {1000, 2000, 2500}; // money to go demo
+    readonly int PENTHOUSE = 3000; // money to buy penthouse
     readonly int END_DAY = 100;
-    double[,] EVENT_POSSIBILITY = new double[4, 4] { { 1.0, 1.0, 1.0, 0 }, { 1.0, 1.0, 0, 0 }, { 1.0, 1.0, 1.0, 1.0 }, { 1.0, 0, 0, 0 } };
-    readonly double ORIGINAL_POS22 = 1.0;
-    readonly double ORIGINAL_POS23 = 1.0;
+    double[,] EVENT_POSSIBILITY = new double[4, 4] { { 0.8, 0.5, 1.0, 0 }, { 0.5, 0.5, 0, 0 }, { 1.0, 1.0, 0.5, 1.0 }, { 1.0, 0.5, 0, 0 } };
+    readonly double TEMPORARY_POS22 = 0.7;
+    readonly double TEMPORARY_POS23 = 0.7;
 
     public static int button;
     public static int choice;
@@ -35,7 +35,9 @@ public class EventManager : MonoBehaviour
     public List<string> ownedItem;
 
     public GameObject goToPlay;
+    public GameObject goToTitle;
     public GameObject blur;
+    public GameObject ES;
     public List<GameObject> backGrounds;
     public List<GameObject> buttons;
     public Dictionary<string, GameObject> images = new Dictionary<string, GameObject>();
@@ -43,6 +45,7 @@ public class EventManager : MonoBehaviour
     public Dictionary<int, EventInfo> eventHelper = new Dictionary<int, EventInfo>();
 
     public int eventID;
+    public int totalEventID;
 
     void Awake()
     {
@@ -74,6 +77,12 @@ public class EventManager : MonoBehaviour
             eventID += lines.Count;
         }
 
+        if(eventHelper.Count == 0)
+        {
+            eventHelper.Add(eventID, new EventInfo("오늘은 아무 일 없이 지나갈 것 같다.", "none", "none", eventID + 1));
+            eventID++;
+        }
+
         eventID = 0;
         isChoicing = false;
         button = 0;
@@ -82,6 +91,7 @@ public class EventManager : MonoBehaviour
 
     void Update()
     {
+        totalEventID = button;
         if(eventHelper.ContainsKey(eventID))
         {
             // Debug.Log(eventID);
@@ -116,7 +126,23 @@ public class EventManager : MonoBehaviour
             if (button == 1)
             {
                 eventText.text = "";
-                goToPlay.SetActive(true);
+                if (day < 100)
+                {
+                    goToPlay.SetActive(true);
+                }
+                else
+                {
+                    eventText.text = "THANKS FOR PLAYING";
+                    gold = 0;
+                    day = 0;
+                    currentPlaceNum = 0;
+                    demoProgress = 0;
+                    bedStatus = 0;
+                    ownedNPC = new List<string>();
+                    ownedItem = new List<string>();
+                    ES.GetComponent<PauseManager>().Reset();
+                    goToTitle.SetActive(true);
+                }
                 isFinished = true;
             }
         }
@@ -350,7 +376,7 @@ public class EventManager : MonoBehaviour
         buttons.Add(GameObject.Find("choice32"));
         buttons.Add(GameObject.Find("choice33"));
 
-        string[] imageName = {"kid", "poorKid"};
+        string[] imageName = {"boy", "entering_moonlightcity", "man", "protesters", "knocking_background"};
 
         foreach (var name in imageName)
         {
@@ -359,6 +385,7 @@ public class EventManager : MonoBehaviour
         }
 
         goToPlay.SetActive(false);
+        goToTitle.SetActive(false);
 
         for (int i = 0; i < 5; i++)
         {
@@ -374,7 +401,18 @@ public class EventManager : MonoBehaviour
         // ending event process
         if (day == END_DAY)
         {
-
+            if (bedStatus == 5)
+                upComingEvents.Add("end1");
+            else if (currentPlaceNum == 0)
+                upComingEvents.Add("end4");
+            else if (demoProgress >= 70)
+                upComingEvents.Add("end6");
+            else if (currentPlaceNum == 3)
+                upComingEvents.Add("end2");
+            else if (currentPlaceNum == 2)
+                upComingEvents.Add("end3");
+            else if (currentPlaceNum == 1)
+                upComingEvents.Add("end5");
             return;
         }
 
@@ -415,8 +453,8 @@ public class EventManager : MonoBehaviour
                 {
                     var tmp1 = EVENT_POSSIBILITY[2, 2];
                     var tmp2 = EVENT_POSSIBILITY[2, 3];
-                    EVENT_POSSIBILITY[2, 2] = ORIGINAL_POS22;
-                    EVENT_POSSIBILITY[2, 3] = ORIGINAL_POS23;
+                    EVENT_POSSIBILITY[2, 2] = TEMPORARY_POS22;
+                    EVENT_POSSIBILITY[2, 3] = TEMPORARY_POS23;
                     //tryAddingEvent("sub22"); // blackguard
                     tryAddingEvent("sub23"); // thief
                     EVENT_POSSIBILITY[2, 2] = tmp1;
@@ -429,9 +467,13 @@ public class EventManager : MonoBehaviour
                 }
                 break;
             case 3:
-                if(bedStatus == 4)
+                if(bedStatus != 5 && gold >= PENTHOUSE)
                 {
-                    //tryAddingEvent("sub30"); // president
+                    tryAddingEvent("sub30"); // PENTHOUSE
+                }
+                if(bedStatus == 5)
+                {
+                    tryAddingEvent("sub31"); // speech
                 }
                 break;
         }
