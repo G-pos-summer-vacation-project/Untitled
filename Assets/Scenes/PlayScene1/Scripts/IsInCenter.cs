@@ -13,8 +13,7 @@ public class IsInCenter : MonoBehaviour
     public GameObject pauseWindow;
     public AudioSource Audio;
 
-    int time = 0;
-    public int regen_time = 900;
+    public float regen_time = 1;
     // Start is called before the first frame update
     // Update is called once per frame
     public void Incorrect()
@@ -49,14 +48,12 @@ public class IsInCenter : MonoBehaviour
         {
             NextGarbage.GetComponent<IsCenterEmpty>().sendNextGarbage();
         }
-        if (time == regen_time)
+        if (!pauseWindow.activeSelf)
+            regen_time -= Time.deltaTime;
+        if (0 > regen_time)
         {
-            
+            regen_time = 1;
             instantiater.GetComponent<garbageInstance>().Instantiate_garbage();
-            
         }
-        if(!pauseWindow.activeSelf)
-            time++;
-        if (time > regen_time) time = 0;
     }
 }
